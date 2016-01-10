@@ -1,11 +1,15 @@
 package ielite.app.popularmovies;
 
 import android.os.Bundle;
+
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -19,12 +23,14 @@ public class MovieDetailFragment extends Fragment {
      * and it's attributes
      */
     private String title;
+    private String poster;
     private String overview;
     private String release_date;
     private String votes;
 
 
     public static final String TITLE_KEY = "title";
+    public static final String POSTER_KEY = "poster";
     public static final String OVERVIEW_KEY = "overview";
     public static final String RELEASE_DATE_KEY = "release_date";
     public static final String VOTES_KEY = "votes";
@@ -38,11 +44,13 @@ public class MovieDetailFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
 
         //Initialize Movie Attributes of the Fragment
         //passed in from MovieListActivity
         this.title = getArguments().getString(TITLE_KEY);
+        this.poster = getArguments().getString(POSTER_KEY);
         this.overview = getArguments().getString(OVERVIEW_KEY);
         this.release_date = getArguments().getString(RELEASE_DATE_KEY);
         this.votes = getArguments().getString(VOTES_KEY);
@@ -55,12 +63,27 @@ public class MovieDetailFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.activity_detail, container, false);
 
+        //Get a reference to the View objects
         TextView titleView = (TextView) rootView.findViewById(R.id.title);
+        ImageView posterView = (ImageView) rootView.findViewById(R.id.posterDetail);
         TextView dateView = (TextView) rootView.findViewById(R.id.releaseDate);
         TextView voteView = (TextView) rootView.findViewById(R.id.votes);
         TextView overViewTextView = (TextView) rootView.findViewById(R.id.overviewText);
 
-        //Set Movie Attributes to the respective Views
+        //Attach Movie Attributes to the respective Views
+        //Load Image View with Poster Image
+        final String posterImageBaseUrl = getActivity().getApplicationContext().getResources().
+                getString(R.string.image_base_url);
+
+        if (poster.equals("null") || poster.equals(null) || poster.equals("")) {
+            posterView.setImageResource(R.drawable.empty_photo);
+        } else {
+            Picasso.with(getActivity())
+                    .load(posterImageBaseUrl + poster)
+                    .into(posterView);
+        }
+
+        //Populate TextViews with Movie Details
         titleView.setText(title);
         dateView.setText(release_date);
         voteView.setText(votes);

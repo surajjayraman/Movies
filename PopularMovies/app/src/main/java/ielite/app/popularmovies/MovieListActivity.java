@@ -116,7 +116,7 @@ public class MovieListActivity extends AppCompatActivity {
 
             //Create new MovieAdapter and plug into RecyclerView
             adapter = new MovieAdapter(getApplicationContext(), movieList);
-            if(mRecyclerView !=null) {
+            if(mRecyclerView != null) {
                 mRecyclerView.setAdapter(adapter);
             }
         }
@@ -218,13 +218,13 @@ public class MovieListActivity extends AppCompatActivity {
         public void onBindViewHolder(final ViewHolder holder, final int position) {
 
             final String posterImageBaseUrl = getApplicationContext().getResources().
-                    getString(R.string.image_base_url);
+                    getString(R.string.image_url_large);
 
             final MovieParcel movie = movieListItem.get(position);
 
             //Using third party library Picasso to download and cache
             //movie poster images
-            if(movie.poster !=null) {
+            if(movie.poster != null) {
                 Picasso.with(mContext)
                         .load(posterImageBaseUrl + movie.poster)
                         .into(holder.poster);
@@ -241,6 +241,7 @@ public class MovieListActivity extends AppCompatActivity {
 
                         Bundle arguments = new Bundle();
                         arguments.putString(MovieDetailFragment.TITLE_KEY, movie.title);
+                        arguments.putString(MovieDetailFragment.POSTER_KEY, movie.poster);
                         arguments.putString(MovieDetailFragment.OVERVIEW_KEY, movie.overview);
                         arguments.putString(MovieDetailFragment.RELEASE_DATE_KEY, movie.release_date);
                         arguments.putString(MovieDetailFragment.VOTES_KEY, movie.vote);
@@ -251,8 +252,8 @@ public class MovieListActivity extends AppCompatActivity {
                                 .replace(R.id.movie_detail_container, fragment)
                                 .commit();
                     } else {
-                        Context context = v.getContext();
 
+                        Context context = v.getContext();
                         //Passing Movie Parcel to Detail Activity
                         Intent intent = new Intent(context, MovieDetailActivity.class);
                         intent.putExtra("movie", movie);
@@ -286,7 +287,6 @@ public class MovieListActivity extends AppCompatActivity {
                 this.poster = (ImageView) view.findViewById(R.id.poster);
 
             }
-
 
         }
     }
@@ -428,7 +428,6 @@ public class MovieListActivity extends AppCompatActivity {
         protected void onPostExecute(final String[][] result) {
 
             //Plug in Movie RecyclerView Adapter
-
             if (result != null) {
                 adapter = new MovieAdapter(getApplicationContext(), movieList);
                 mRecyclerView.setAdapter(adapter);

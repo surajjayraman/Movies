@@ -12,56 +12,48 @@
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="@dimen/title_height"
         android:background="@color/title_background"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="28sp" />
-
+        android:textSize="@dimen/title_txt_size" />
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="@dimen/margin_top_min">
 
         <ImageView
             android:id="@+id/posterDetail"
-            android:layout_width="200dp"
+            android:layout_width="@dimen/poster_size"
             android:layout_height="wrap_content"
             android:scaleType="fitXY" />
 
 
         <TextView
             android:id="@+id/releaseDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="20dp"
+            style="@style/CustomText"
+            android:layout_marginLeft="@dimen/margin_left_min"
             android:layout_toRightOf="@id/posterDetail"
-            android:textSize="20sp" />
+            android:textSize="@dimen/body_txt_max" />
 
         <TextView
             android:id="@+id/votes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/CustomText"
             android:layout_below="@id/releaseDate"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="@dimen/margin_left_min"
             android:layout_toRightOf="@id/posterDetail"
-            android:textSize="16sp" />
+            android:textSize="@dimen/body_txt_min" />
 
         <TextView
             android:id="@+id/overviewText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/CustomText"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@id/posterDetail"
-            android:layout_marginTop="15dp"
-            android:paddingLeft="15dp"
-            android:paddingRight="15dp"
-            android:textSize="16dp" />
+            android:paddingLeft="@dimen/text_margin"
+            android:paddingRight="@dimen/text_margin"
+            android:textSize="@dimen/body_txt_min" />
     </RelativeLayout>
-
 
 </LinearLayout>

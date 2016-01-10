@@ -19,7 +19,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/movie_list"
         android:name="ielite.app.popularmovies.MovieListFragment"
-        android:layout_width="300dp"
+        android:layout_width="@dimen/two_pane_width"
         android:layout_height="match_parent"
         app:layoutManager="GridLayoutManager"
         tools:context="ielite.app.popularmovies.MovieListActivity"
@@ -33,6 +33,5 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     </FrameLayout>
-
 
 </LinearLayout>

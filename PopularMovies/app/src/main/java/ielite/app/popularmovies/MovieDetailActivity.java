@@ -48,21 +48,24 @@ public class MovieDetailActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
+        //get a reference to the View objects in the Detail layout
         TextView titleView = (TextView) findViewById(R.id.title);
         TextView dateView = (TextView) findViewById(R.id.releaseDate);
         TextView voteView = (TextView) findViewById(R.id.votes);
         ImageView posterView = (ImageView) findViewById(R.id.posterDetail);
         TextView overViewTextView = (TextView) findViewById(R.id.overviewText);
 
+        //get a reference to the Movie object
         movie = getIntent().getParcelableExtra("movie");
 
+        //attach movie attributes to the Detail layout
         this.title = movie.title;
         this.poster = movie.poster;
         this.overview = movie.overview;
         this.release_date = movie.release_date;
         this.votes = movie.vote;
 
-
+        //Load ImageView with poster image
         final String posterImageBaseUrl = getApplicationContext().getResources().
                 getString(R.string.image_base_url);
 
@@ -74,11 +77,11 @@ public class MovieDetailActivity extends AppCompatActivity {
                     .into(posterView);
         }
 
+        //Populate TextViews with Movie Details
         titleView.setText(title);
         dateView.setText(release_date);
         voteView.setText(votes);
         overViewTextView.setText(overview);
-
     }
 
     @Override
