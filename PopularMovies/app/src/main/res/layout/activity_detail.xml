@@ -35,7 +35,7 @@
             style="@style/CustomText"
             android:layout_marginLeft="@dimen/margin_left_min"
             android:layout_toRightOf="@id/posterDetail"
-            android:textSize="@dimen/body_txt_max" />
+            android:textSize="@dimen/body_txt_max"/>
 
         <TextView
             android:id="@+id/votes"

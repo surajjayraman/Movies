@@ -79,9 +79,9 @@ public class MovieDetailActivity extends AppCompatActivity {
 
         //Populate TextViews with Movie Details
         titleView.setText(title);
-        dateView.setText(release_date);
-        voteView.setText(votes);
-        overViewTextView.setText(overview);
+        dateView.setText(getString(R.string.release_date) + release_date);
+        voteView.setText(getString(R.string.ratings) + votes);
+        overViewTextView.setText(getString(R.string.synopsis) + overview);
     }
 
     @Override
