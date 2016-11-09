@@ -11,12 +11,12 @@ original title
 movie poster image thumbnail
 A plot synopsis (called overview in the api)
 user rating (called vote_average in the api)
-release date
+release date.
 
 This app demonstrates my understanding of the foundational elements of programming for Android. 
 
 The app will fetch data from the Internet with theMovieDB API.
 The app uses adapters and custom list layouts to populate list views.
-The app incorporates libraries to simplify the amount of code one needs to write
+The app incorporates libraries to simplify the amount of code one needs to write.
 
 To try building and running the app, Plug-In your themoviedb.org web API Key to strings.xml file.
