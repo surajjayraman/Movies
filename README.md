@@ -1,7 +1,7 @@
 # Movies
 Popular Movies Stage 1 - Final Version
 
-Most of us can relate to kicking back on the couch and enjoying a movie with friends and family. The Movies app allows users to discover the most popular movies playing. The core experience of your movies app includes:
+Most of us can relate to kicking back on the couch and enjoying a movie with friends and family. The Movies app allows users to discover the most popular movies playing. The core experience of the movies app includes:
 
 Present the user with a grid arrangement of movie posters upon launch.
 Allow user to change sort order via a setting:
